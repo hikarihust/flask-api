@@ -1,0 +1,9 @@
+                                REST API
+
+The code in this section includes a simple Flask app and a HTML and JavaScript file which calls the Flask app endpoints.
+Installing Flask
+    pip install flask
+First Flask application
+    python app.py 
+    Open http://127.0.0.1:5000/ to check 
+    
