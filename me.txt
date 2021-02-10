@@ -17,4 +17,20 @@ Using Postman for API testing
     Header:
         Content-Type: application/json
     Body(raw)
+
+    ==========================================================================================================
+
+                                Flask-RESTful for more efficient development
+            
+Virtualenvs and setting up Flask-RESTful
+    pip3 freeze
+        check list libraries installed 
+    pip3 install virtualenv 
+        Use to install virtual environment 
+    virtualenv is a tool to create virtual environment
+    virtualenv venv --python=python3
+    source venv/bin/activate
+    pip3 install Flask-RESTful 
+    pip3 freeze
+    deactivate to leave virtual environment
     
