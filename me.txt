@@ -13,4 +13,8 @@ Returning a list of stores
 Implementing other endpoints
 Calling the API from JavaScript
     Open http://127.0.0.1:5000/
+Using Postman for API testing
+    Header:
+        Content-Type: application/json
+    Body(raw)
     

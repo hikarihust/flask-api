@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
 stores = [{
-    'name': 'My Store',
+    'name': 'My Wonderful Store',
     'items': [{'name':'my item', 'price': 15.99 }]
 }]
 
