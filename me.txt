@@ -7,4 +7,7 @@ First Flask application
     python app.py 
     Open http://127.0.0.1:5000/ to check 
 Creating our application endpoints
+Returning a list of stores
+    python app.py 
+    Go to browser http://127.0.0.1:5000/store to test
     
