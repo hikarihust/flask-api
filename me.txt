@@ -38,4 +38,33 @@ First Flask-RESTful app
     .\venv\Scripts\activate
     py app.py
     http://127.0.0.1:5000/student/Rolf
+Test-first API design—what is that?
+    GET: http://127.0.0.1:5000/items
+        /items
+        Description: This should return a list of items, each in JSON format
+    GET: http://127.0.0.1:5000/item/<name>
+        /item/<name>
+        Description: This will return one specific item, uniquely identified by its name.
+            No two items may have same name
+    POST: http://127.0.0.1:5000/item/<name>
+        /item/<name>
+        Header: 
+            Content-Type: application/json
+        Body(raw):
+            {
+                "price": 15.99
+            }
+        Description: This will create a new item. If the item already exists, it will fail
+    DELETE: http://127.0.0.1:5000/item/<name>
+        /item/<name>
+        Description: This will delete an item, uniquely identified by name
+    PUT: http://127.0.0.1:5000/item/<name>
+        /item/<name>
+        Header: 
+            Content-Type: application/json
+        Body(raw):
+            {
+                "price": 15.99
+            }
+        Description: This will create a new item or update an existting item.
     
