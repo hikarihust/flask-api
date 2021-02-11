@@ -73,4 +73,10 @@ Creating our Item Resource
             "price": 15.99
         }
     GET: http://127.0.0.1:5000/item/chair
+The ItemList and creating Items
+    POST: http://127.0.0.1:5000/item/chair 
+        {
+            "price": 15.99
+        }
+    GET: http://127.0.0.1:5000/items
     
