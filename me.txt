@@ -131,4 +131,6 @@ Setting up our project
     pip3 install Flask-RESTful 
     pip3 install Flask-JWT
     py app.py to check it runs
+Running a SQLite database and interacting with it from Python
+    py test.py
     
