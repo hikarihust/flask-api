@@ -67,4 +67,10 @@ Test-first API design—what is that?
                 "price": 15.99
             }
         Description: This will create a new item or update an existting item.
+Creating our Item Resource
+    POST: http://127.0.0.1:5000/item/chair 
+        {
+            "price": 15.99
+        }
+    GET: http://127.0.0.1:5000/item/chair
     
