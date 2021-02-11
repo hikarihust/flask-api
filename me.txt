@@ -83,4 +83,34 @@ Improving code and error control
 Authentication and logging - 1
     pip3 install Flask-JWT
         install Flask-JWT in virtual environment
+Authentication and logging - 2
+    POST: http://127.0.0.1:5000/auth 
+    Header: 
+        Content-Type: application/json
+    Body(raw):
+        {
+            "username": "bob",
+            "password": "asdf"
+        }
+    Response:
+        {
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTMwNDA2MzQsImlhdCI6MTYxMzA0MDMzNCwibmJmIjoxNjEzMDQwMzM0LCJpZGVudGl0eSI6MX0.JFalBF1cO5dlPwQAN8dP887CawnD1NUQonXADlBujRU"
+        }
+    http://127.0.0.1:5000/item/piano
+        Khi chưa gửi token
+            {
+                "description": "Request does not contain an access token",
+                "error": "Authorization Required",
+                "status_code": 401
+            }
+    Header:
+        Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTMwNDA2MzQsImlhdCI6MTYxMzA0MDMzNCwibmJmIjoxNjEzMDQwMzM0LCJpZGVudGl0eSI6MX0.JFalBF1cO5dlPwQAN8dP887CawnD1NUQonXADlBujRU
+    http://127.0.0.1:5000/item/piano
+        Response
+        {
+            "item": {
+                "name": "piano",
+                "price": 15.99
+            }
+        }
     
