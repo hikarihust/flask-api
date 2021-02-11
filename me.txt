@@ -113,4 +113,5 @@ Authentication and logging - 2
                 "price": 15.99
             }
         }
+DELETE to delete Items
     
