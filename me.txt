@@ -30,7 +30,12 @@ Virtualenvs and setting up Flask-RESTful
     virtualenv is a tool to create virtual environment
     virtualenv venv --python=python3
     source venv/bin/activate
+    Windows: .\venv\Scripts\activate
     pip3 install Flask-RESTful 
     pip3 freeze
     deactivate to leave virtual environment
+First Flask-RESTful app
+    .\venv\Scripts\activate
+    py app.py
+    http://127.0.0.1:5000/student/Rolf
     
