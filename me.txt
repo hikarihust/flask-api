@@ -80,4 +80,7 @@ The ItemList and creating Items
         }
     GET: http://127.0.0.1:5000/items
 Improving code and error control
+Authentication and logging - 1
+    pip3 install Flask-JWT
+        install Flask-JWT in virtual environment
     
