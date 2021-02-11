@@ -275,10 +275,9 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "Content-Type",
+								"key": "Authorization",
 								"type": "text",
-								"value": "application/json",
-								"disabled": true
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTMwNDE5OTYsImlhdCI6MTYxMzA0MTY5NiwibmJmIjoxNjEzMDQxNjk2LCJpZGVudGl0eSI6MX0.sEZuJOPBcsO_bCYGdku2qwJ2w_kjrcp3VoakurYGdYg"
 							}
 						],
 						"body": {
@@ -286,7 +285,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/<name>",
+							"raw": "http://127.0.0.1:5000/item/piano",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -297,7 +296,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"<name>"
+								"piano"
 							]
 						},
 						"description": "This will delete an item, uniquely identified by name"
