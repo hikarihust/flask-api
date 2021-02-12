@@ -380,7 +380,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/table",
+							"raw": "http://127.0.0.1:5000/item/test2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -391,7 +391,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"table"
+								"test2"
 							]
 						},
 						"description": "This will return one specific item, uniquely identified by its name. No two items may have same name"
