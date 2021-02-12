@@ -145,4 +145,5 @@ Signing up and writing Users to a database
     POST: http://127.0.0.1:5000/register
     POST: http://127.0.0.1:5000/item/table
     GET: http://127.0.0.1:5000/item/table
+Preventing duplicate usernames when signing users up
     
