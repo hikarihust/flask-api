@@ -169,4 +169,5 @@ Writing our Item resources to a database
 Deleting our Item resources from the database
     DELETE: http://127.0.0.1:5000/item/test
     GET: http://127.0.0.1:5000/item/test
+Refactoring insertion of items
     
