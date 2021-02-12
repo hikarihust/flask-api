@@ -180,4 +180,15 @@ Retrieving many items from the database
     GET: http://127.0.0.1:5000/items again to check get both items(piano and desk)
     DELETE: http://127.0.0.1:5000/item/piano
     GET: http://127.0.0.1:5000/items to check item deleted
+    ==========================================================================================================
+
+                                Simplifying storage with Flask-SQLAlchemy
+
+Setting up project
+    Create section6 folder
+    virtualenv venv --python=python3
+    .\venv\Scripts\activate
+    pip3 install Flask-RESTful 
+    pip3 install Flask-JWT
+    pip3 install Flask-SQLAlchemy
     
