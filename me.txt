@@ -166,4 +166,7 @@ Writing our Item resources to a database
     POST: http://127.0.0.1:5000/item/test
     GET: http://127.0.0.1:5000/item/test
     POST: http://127.0.0.1:5000/item/test again to test error
+Deleting our Item resources from the database
+    DELETE: http://127.0.0.1:5000/item/test
+    GET: http://127.0.0.1:5000/item/test
     

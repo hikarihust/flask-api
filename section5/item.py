@@ -54,11 +54,17 @@ class Item(Resource):
         connection.commit()
         connection.close()
 
-
     @jwt_required()
     def delete(self, name):
-        global items
-        items = list(filter(lambda x: x['name'] != name, items))
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
+
+        query = "DELETE FROM {table} WHERE name=?".format(table=self.TABLE_NAME)
+        cursor.execute(query, (name,))
+
+        connection.commit()
+        connection.close()
+
         return {'message': 'Item deleted'}
 
     @jwt_required()
