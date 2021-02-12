@@ -171,4 +171,13 @@ Deleting our Item resources from the database
     GET: http://127.0.0.1:5000/item/test
 Refactoring insertion of items
 The PUT method with database interaction
+Retrieving many items from the database
+    Không save thì không cần commit mà chỉ cần close database
+    PUT http://127.0.0.1:5000/item/piano
+    GET: http://127.0.0.1:5000/items
+    GET: http://127.0.0.1:5000/item/piano
+    POST: http://127.0.0.1:5000/item/desk
+    GET: http://127.0.0.1:5000/items again to check get both items(piano and desk)
+    DELETE: http://127.0.0.1:5000/item/piano
+    GET: http://127.0.0.1:5000/items to check item deleted
     
