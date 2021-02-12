@@ -380,7 +380,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/test2",
+							"raw": "http://127.0.0.1:5000/item/test",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -391,7 +391,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"test2"
+								"test"
 							]
 						},
 						"description": "This will return one specific item, uniquely identified by its name. No two items may have same name"
@@ -414,7 +414,7 @@
 							"raw": "{\r\n    \"price\": 15.99\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/table",
+							"raw": "http://127.0.0.1:5000/item/test",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -425,7 +425,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"table"
+								"test"
 							]
 						},
 						"description": "This will create a new item. If the item already exists, it will fail"

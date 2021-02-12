@@ -32,14 +32,28 @@ class Item(Resource):
             return {'item': {'name': row[0], 'price': row[1]}}
 
     def post(self, name):
-        if next(filter(lambda x: x['name'] == name, items), None):
+        if self.find_by_name(name):
             return {'message': "An item with name '{}' already exists.".format(name)}, 400
-        
+
         data = Item.parser.parse_args()
-        
+
         item = {'name': name, 'price': data['price']}
-        items.append(item)
+
+        Item.insert(item)
+
         return item, 201
+
+    @classmethod
+    def insert(cls, item):
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
+
+        query = "INSERT INTO {table} VALUES(?, ?)".format(table=cls.TABLE_NAME)
+        cursor.execute(query, (item['name'], item['price']))
+
+        connection.commit()
+        connection.close()
+
 
     @jwt_required()
     def delete(self, name):

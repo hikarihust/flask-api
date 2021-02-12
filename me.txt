@@ -147,6 +147,7 @@ Signing up and writing Users to a database
     GET: http://127.0.0.1:5000/item/table
 Preventing duplicate usernames when signing users up
 Retrieving our Item resources from a database
+    cursor.execute("INSERT INTO items VALUES ('test', 10.99)")
     .\venv\Scripts\activate
     pip3 install Flask-RESTful 
     pip3 install Flask-JWT
@@ -156,4 +157,13 @@ Retrieving our Item resources from a database
     POST: http://127.0.0.1:5000/auth
     GET: http://127.0.0.1:5000/item/test
     GET: http://127.0.0.1:5000/item/test2
+Writing our Item resources to a database
+    rm .\data.db
+    py .\create_table.py
+    py .\app.py
+    POST: http://127.0.0.1:5000/register
+    POST: http://127.0.0.1:5000/auth
+    POST: http://127.0.0.1:5000/item/test
+    GET: http://127.0.0.1:5000/item/test
+    POST: http://127.0.0.1:5000/item/test again to test error
     
