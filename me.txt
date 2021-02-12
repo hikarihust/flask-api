@@ -133,4 +133,10 @@ Setting up our project
     py app.py to check it runs
 Running a SQLite database and interacting with it from Python
     py test.py
+Logging in and retrieving Users from a database
+    py test.py
+    py app.py
+    POST: http://127.0.0.1:5000/auth
+    POST: http://127.0.0.1:5000/item/chair
+    GET: http://127.0.0.1:5000/item/chair
     
