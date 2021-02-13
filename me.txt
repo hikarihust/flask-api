@@ -309,4 +309,15 @@ Setting up Heroku for Flask
     git commit -am "first deploy"
     git push heroku master
     -> No default language could be detected for this app
+Adding the required files to the project
+    runtime.txt
+        It is going to tell Heroku what kind of language and what version we are using
+    requirements.txt
+        Tell Heroku that libraries are in use and that should install
+    uwsgi.ini
+        Some configuration param for the UWSGI process 
+    Procfile
+        It will tell Heroku how to run our app
+    git commit -m 'Adding the required files to the project'
+    git push heroku master
     
