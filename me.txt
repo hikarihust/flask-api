@@ -266,4 +266,5 @@ Implementing the ItemModel using SQLAlchemy
 Implementing the UserModel using SQLAlchemy
 Easily displaying the ItemList resource with SQLAlchemy
 No more creating tables manually—telling SQLAlchemy to creat
+Creating a new model: StoreModel
     
