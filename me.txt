@@ -268,4 +268,31 @@ Easily displaying the ItemList resource with SQLAlchemy
 No more creating tables manually—telling SQLAlchemy to creat
 Creating a new model: StoreModel
 Creating the Store Resource
+Final testing of this section's API
+    rm .\data.db
+    py .\app.py
+    POST: {{url}}/register
+    POST: {{url}}/auth
+    GET: {{url}}/items
+    POST: {{url}}/item/test
+        "price": 15.99 only
+        -> Every item needs a store_id.
+    POST: {{url}}/item/test
+        "price": 15.99,
+        "store_id": 1
+    GET: {{url}}/item/test
+    DELETE: {{url}}/item/test
+    PUT: {{url}}/item/test
+        "price": 27.99 only
+        -> Every item needs a store_id
+    PUT: {{url}}/item/test
+        "price": 27.99,
+        "store_id": 2
+    GET: {{url}}/store/table
+    POST: {{url}}/store/test
+    POST: {{url}}/store/test2
+    GET: {{url}}/store/test
+    GET: {{url}}/store/test2
+    DELETE: {{url}}/store/test
+    GET: {{url}}/stores
     
