@@ -328,4 +328,12 @@ Logs in Heroku and troubleshooting errors
         module = run:app
     git commit -am "Fixed not importing db when running the app"
     git push heroku master
+Testing the deployed API with Postman
+    url: https://flask-py-api.herokuapp.com
+    POST: {{url}}/register
+    POST: {{url}}/auth
+    GET: {{url}}/items
+    POST: {{url}}/item/test
+    GET: {{url}}/item/test
+    DELETE: {{url}}/item/test
     
