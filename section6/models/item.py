@@ -1,7 +1,13 @@
 import sqlite3
+from db import db
 
-class ItemModel:
-    TABLE_NAME = 'items'
+class ItemModel(db.Model):
+    __tablename__ = 'items'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80))
+    price = db.Column(db.Float(precision=2))
+    
     def __init__(self, name, price):
         self.name = name
         self.price = price
@@ -14,7 +20,7 @@ class ItemModel:
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
-        query = "SELECT * FROM {table} WHERE name=?".format(table=cls.TABLE_NAME)
+        query = "SELECT * FROM {table} WHERE name=?".format(table=cls.__tablename__)
         result = cursor.execute(query, (name,))
         row = result.fetchone()
         connection.close()
@@ -26,7 +32,7 @@ class ItemModel:
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
-        query = "INSERT INTO {table} VALUES(?, ?)".format(table=self.TABLE_NAME)
+        query = "INSERT INTO {table} VALUES(?, ?)".format(table=self.__tablename__)
         cursor.execute(query, (self.name, self.price))
 
         connection.commit()
@@ -36,7 +42,7 @@ class ItemModel:
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
-        query = "UPDATE {table} SET price=? WHERE name=?".format(table=self.TABLE_NAME)
+        query = "UPDATE {table} SET price=? WHERE name=?".format(table=self.__tablename__)
         cursor.execute(query, (self.price, self.name))
 
         connection.commit()
