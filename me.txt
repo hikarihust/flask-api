@@ -191,4 +191,5 @@ Setting up project
     pip3 install Flask-RESTful 
     pip3 install Flask-JWT
     pip3 install Flask-SQLAlchemy
+Improving the project structure and maintainability
     
