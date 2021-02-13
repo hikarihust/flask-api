@@ -320,4 +320,12 @@ Adding the required files to the project
         It will tell Heroku how to run our app
     git commit -m 'Adding the required files to the project'
     git push heroku master
+Logs in Heroku and troubleshooting errors
+    https://flask-py-api.herokuapp.com/
+        -> https://flask-py-api.herokuapp.com/
+    heroku logs --app=flask-py-api
+    uwsgi.ini
+        module = run:app
+    git commit -am "Fixed not importing db when running the app"
+    git push heroku master
     
