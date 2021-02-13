@@ -296,3 +296,17 @@ Final testing of this section's API
     DELETE: {{url}}/store/test
     GET: {{url}}/stores
     
+    ==========================================================================================================
+
+                                Deploying Flask apps to Heroku
+
+Setting up Heroku for Flask
+    Create New App
+    App name: flask-py-api 
+    git init
+    heroku git:remote -a flask-py-api
+    git add .
+    git commit -am "first deploy"
+    git push heroku master
+    -> No default language could be detected for this app
+    
