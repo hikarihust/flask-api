@@ -192,4 +192,5 @@ Setting up project
     pip3 install Flask-JWT
     pip3 install Flask-SQLAlchemy
 Improving the project structure and maintainability
+Creating User and Item models
     
