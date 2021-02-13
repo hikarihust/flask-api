@@ -263,4 +263,5 @@ Implementing the ItemModel using SQLAlchemy
     PUT: {{url}}/item/test to check edited
     DELETE: {{url}}/item/test
     GET: {{url}}/items to check deleted
+Implementing the UserModel using SQLAlchemy
     
