@@ -264,4 +264,5 @@ Implementing the ItemModel using SQLAlchemy
     DELETE: {{url}}/item/test
     GET: {{url}}/items to check deleted
 Implementing the UserModel using SQLAlchemy
+Easily displaying the ItemList resource with SQLAlchemy
     
