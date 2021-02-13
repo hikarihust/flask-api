@@ -205,4 +205,46 @@ Verifying the app works after our changes
     DELETE: http://127.0.0.1:5000/item/phone
     PUT: http://127.0.0.1:5000/item/phone
     GET: http://127.0.0.1:5000/items again to check edited 
+Advanced Postman: environments and tests
+    Environment Variable
+        url: http://127.0.0.1:5000
+        token: 
+    GET: {{url}}/items
+    GET: {{url}}/item/phone
+    POST: {{url}}/item/phone
+    PUT: {{url}}/item/phone
+    DELETE: {{url}}/item/phone
+    POST: {{url}}/auth
+    POST: {{url}}/register
+    Tests tab: 
+    POST: {{url}}/auth to check 
+        Tests tab:
+            var jsonData = pm.response.json();
+            tests["Access token was not empty"] = jsonData.access_token !== undefined;
+            pm.environment.set("token", jsonData.access_token);
+        Test Results tab: 
+            Pass: Access token was not empty
+    GET: {{url}}/item/phone normal get result 
+    GET: {{url}}/items
+        Tests tab:
+            pm.test("Response time is less than 200ms", function () {
+                pm.expect(pm.response.responseTime).to.be.below(200);
+            });
+            pm.test("Status code is 200", function () {
+                pm.response.to.have.status(200);
+            });
+        Test Results tab: 
+            PASS: Response time is less than 200ms
+            PASS: Status code is 200
+    GET: {{url}}/item/test
+        Tests tab:
+            pm.test("Response time is less than 200ms", function () {
+                pm.expect(pm.response.responseTime).to.be.below(200);
+            });
+            pm.test("Status code is 200", function () {
+                pm.response.to.have.status(200);
+            });
+        Test Results tab: 
+            PASS: Response time is less than 200ms
+            FAIL: Status code is 200 | AssertionError: expected response to have status code 200 but got 401
     

@@ -596,19 +596,30 @@
 			"item": [
 				{
 					"name": "/items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/items",
-							"protocol": "http",
+							"raw": "{{url}}/items",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "5000",
 							"path": [
 								"items"
 							]
@@ -619,6 +630,22 @@
 				},
 				{
 					"name": "/item/<name>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -629,18 +656,13 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/phone",
-							"protocol": "http",
+							"raw": "{{url}}/item/test",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "5000",
 							"path": [
 								"item",
-								"phone"
+								"test"
 							]
 						},
 						"description": "This will return one specific item, uniquely identified by its name. No two items may have same name"
@@ -663,15 +685,10 @@
 							"raw": "{\r\n    \"price\": 15.99\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/phone",
-							"protocol": "http",
+							"raw": "{{url}}/item/phone",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "5000",
 							"path": [
 								"item",
 								"phone"
@@ -702,15 +719,10 @@
 							"raw": "{\r\n    \"price\": 27.99\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/phone",
-							"protocol": "http",
+							"raw": "{{url}}/item/phone",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "5000",
 							"path": [
 								"item",
 								"phone"
@@ -736,15 +748,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/phone",
-							"protocol": "http",
+							"raw": "{{url}}/item/phone",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "5000",
 							"path": [
 								"item",
 								"phone"
@@ -756,6 +763,19 @@
 				},
 				{
 					"name": "/auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"tests[\"Access token was not empty\"] = jsonData.access_token !== undefined;\r",
+									"pm.environment.set(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -770,15 +790,10 @@
 							"raw": "{\r\n    \"username\": \"jose\",\r\n    \"password\": \"asdf\"\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/auth",
-							"protocol": "http",
+							"raw": "{{url}}/auth",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "5000",
 							"path": [
 								"auth"
 							]
@@ -802,15 +817,10 @@
 							"raw": "{\r\n    \"username\": \"jose\",\r\n    \"password\": \"asdf\"\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/register",
-							"protocol": "http",
+							"raw": "{{url}}/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "5000",
 							"path": [
 								"register"
 							]
