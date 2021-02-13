@@ -685,13 +685,13 @@
 							"raw": "{\r\n    \"price\": 15.99\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/item/phone",
+							"raw": "{{url}}/item/test",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"item",
-								"phone"
+								"test"
 							]
 						},
 						"description": "This will create a new item. If the item already exists, it will fail"
@@ -719,13 +719,13 @@
 							"raw": "{\r\n    \"price\": 27.99\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/item/phone",
+							"raw": "{{url}}/item/test",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"item",
-								"phone"
+								"test"
 							]
 						},
 						"description": "This will create a new item. If the item already exists, it will fail"
@@ -748,13 +748,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/item/phone",
+							"raw": "{{url}}/item/test",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"item",
-								"phone"
+								"test"
 							]
 						},
 						"description": "This will delete an item, uniquely identified by name"
