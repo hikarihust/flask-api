@@ -380,7 +380,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/test",
+							"raw": "http://127.0.0.1:5000/item/phone",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -391,7 +391,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"test"
+								"phone"
 							]
 						},
 						"description": "This will return one specific item, uniquely identified by its name. No two items may have same name"
@@ -414,7 +414,7 @@
 							"raw": "{\r\n    \"price\": 15.99\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/test",
+							"raw": "http://127.0.0.1:5000/item/phone",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -425,7 +425,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"test"
+								"phone"
 							]
 						},
 						"description": "This will create a new item. If the item already exists, it will fail"
@@ -450,10 +450,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"price\": 111.99\r\n}"
+							"raw": "{\r\n    \"price\": 27.99\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/desk",
+							"raw": "http://127.0.0.1:5000/item/phone",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -464,7 +464,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"desk"
+								"phone"
 							]
 						},
 						"description": "This will create a new item. If the item already exists, it will fail"
@@ -479,7 +479,7 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTMwNDE5OTYsImlhdCI6MTYxMzA0MTY5NiwibmJmIjoxNjEzMDQxNjk2LCJpZGVudGl0eSI6MX0.sEZuJOPBcsO_bCYGdku2qwJ2w_kjrcp3VoakurYGdYg"
+								"value": "JWT {{token}}"
 							}
 						],
 						"body": {
@@ -487,7 +487,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/piano",
+							"raw": "http://127.0.0.1:5000/item/phone",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -498,7 +498,256 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"piano"
+								"phone"
+							]
+						},
+						"description": "This will delete an item, uniquely identified by name"
+					},
+					"response": []
+				},
+				{
+					"name": "/auth",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jose\",\r\n    \"password\": \"asdf\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jose\",\r\n    \"password\": \"asdf\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Section 6",
+			"item": [
+				{
+					"name": "/items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/items",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"items"
+							]
+						},
+						"description": "This should return a list of items, each in JSON format"
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/phone",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"phone"
+							]
+						},
+						"description": "This will return one specific item, uniquely identified by its name. No two items may have same name"
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 15.99\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/phone",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"phone"
+							]
+						},
+						"description": "This will create a new item. If the item already exists, it will fail"
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 27.99\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/phone",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"phone"
+							]
+						},
+						"description": "This will create a new item. If the item already exists, it will fail"
+					},
+					"response": []
+				},
+				{
+					"name": "/item/<name>",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/item/phone",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"item",
+								"phone"
 							]
 						},
 						"description": "This will delete an item, uniquely identified by name"

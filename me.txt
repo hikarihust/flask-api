@@ -193,4 +193,16 @@ Setting up project
     pip3 install Flask-SQLAlchemy
 Improving the project structure and maintainability
 Creating User and Item models
+Verifying the app works after our changes
+    py .\create_table.py
+    py .\app.py
+    POST: http://127.0.0.1:5000/register
+    POST: http://127.0.0.1:5000/auth
+    GET: http://127.0.0.1:5000/items
+    POST: http://127.0.0.1:5000/item/phone
+    GET: http://127.0.0.1:5000/items again to check item created 
+    GET: http://127.0.0.1:5000/item/phone
+    DELETE: http://127.0.0.1:5000/item/phone
+    PUT: http://127.0.0.1:5000/item/phone
+    GET: http://127.0.0.1:5000/items again to check edited 
     
