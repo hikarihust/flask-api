@@ -358,3 +358,16 @@ Adding PostgreSQL to our Heroku app
     https://dashboard.heroku.com/apps -> flask-py-api -> Heroku Postgres -> Settings -> View Credentials
         to check Host, Database, User, Port, password, URI
     
+    ==========================================================================================================
+
+                                Deploying Flask apps to our own server
+
+Installing PostgreSQL in Ubuntu
+    sudo apt-get update 
+    sudo apt-get install postgresql postgresql-contrib
+    sudo -i -u postgres
+    psql 
+    \conninfo:
+        connect to database postgres
+    \q: to exit the psql process, it leaves the database and goes back to the Unix terminal 
+    exit: log out off the postgres user(Logging by sudo -i -u postgres)
