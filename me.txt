@@ -336,4 +336,25 @@ Testing the deployed API with Postman
     POST: {{url}}/item/test
     GET: {{url}}/item/test
     DELETE: {{url}}/item/test
+Adding PostgreSQL to our Heroku app
+    https://dashboard.heroku.com/apps -> flask-py-api 
+    -> resources(tab) -> Find more add-ons
+        Search Elements: postgres
+            -> Heroku Postgres
+            -> Install Heroku Postgres
+    -> Settings(tab) -> Reveal Config Vars
+        We have DATABASE_URL value 
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+        sqlite:///data.db dùng khi lập trình trên local
+        DATABASE_URL là giá trị khi deploy lên heroku
+    psycopg2: is a very popular Python library used to interact with Postgres
+    git commit -am "Added PostgresSQL environment variable and psycopg2"
+    git push heroku master
+    POST: {{url}}/register
+    POST: {{url}}/auth
+    GET: {{url}}/items
+    https://dashboard.heroku.com/apps -> flask-py-api -> Heroku Postgres -> Overview(tab)
+        check: 1 connection(from app), 1 row(user registered), 3 table(user, item, store)
+    https://dashboard.heroku.com/apps -> flask-py-api -> Heroku Postgres -> Settings -> View Credentials
+        to check Host, Database, User, Port, password, URI
     
