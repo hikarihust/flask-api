@@ -371,3 +371,15 @@ Installing PostgreSQL in Ubuntu
         connect to database postgres
     \q: to exit the psql process, it leaves the database and goes back to the Unix terminal 
     exit: log out off the postgres user(Logging by sudo -i -u postgres)
+Creating a UNIX user in Ubuntu
+    sudo su -
+    adduser jose
+        To create a new user
+    Add the new user to sudo users
+        Running the visudo command will open a file (normally located at /etc/sudoers).
+        visudo
+    Under "User privilege specification", add the following line below root line
+        jose ALL=(ALL:ALL) ALL
+    su - jose 
+        Swith to jose user
+    
