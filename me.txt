@@ -382,4 +382,24 @@ Creating a UNIX user in Ubuntu
         jose ALL=(ALL:ALL) ALL
     su - jose 
         Swith to jose user
+Setting up our new user with PostgreSQL permissions
+    su - jose 
+    sudo su
+    sudo -i -u postgres
+    To create a postgres user, run the following command. Note, the user must have the same name as the 
+        unix user logged into the server ("jose" in our case).
+        P is allow us to set a password for this user
+        createuser jose -P
+    To create a database, run
+        createdb jose
+    exit to exit from postgres user -> root
+    exit to exit from root user -> jose 
+    The user by default connect to the same database as the user's name
+    \conninfo
+    To enforce password login to PostgreSQL with user jose, run the following commands. Note 12 is the PostgreSQL version 
+        installed in your server. Later this version may change so make sure to change your accordingly.
+        vi /etc/postgresql/12/main/pg_hba.conf
+    Scroll down to the bottom and change "peer" to "md5" in the following line under '# "local" is for unix domain socket 
+        connections only comment'. This is how the line should look after changing.
+        local all all md5
     
