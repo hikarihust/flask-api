@@ -402,4 +402,73 @@ Setting up our new user with PostgreSQL permissions
     Scroll down to the bottom and change "peer" to "md5" in the following line under '# "local" is for unix domain socket 
         connections only comment'. This is how the line should look after changing.
         local all all md5
+Setting up nginx and our REST API
+    Update server by running
+        sudo apt-get update
+    To install Nginx, run
+        sudo apt-get install nginx
+    Allow Nginx access through firewall (otherwise incoming requests will be blocked by the firewall)
+        sudo ufw enable
+        sudo ufw allow 'Nginx HTTP'
+    Also since we have enabled firewall, remember to allow ssh through the firewall, else you will get locked out of the server.
+        sudo ufw allow ssh
+    You can check firewall status by using
+        sudo ufw status
+    To check Nginx status, use
+        systemctl status nginx
+    The following commands stop, start and restart Nginx respectively.
+        systemctl stop nginx
+        systemctl start nginx
+        systemctl restart nginx
+    Configuring Nginx
+    Create a new file for the items REST API configuration.
+        sudo vi /etc/nginx/sites-available/items-rest.conf
+            server {
+                listen 80;
+                real_ip_header X-Forwarded-For;
+                set_real_ip_from 127.0.0.1;
+                server_name localhost;
+
+                location / {
+                    include uwsgi_params;
+                    uwsgi_pass unix:/var/www/html/items-rest/socket.sock;
+                    uwsgi_modifier1 30;
+                }
+
+                error_page 404 /404.html;
+                location = 404.html {
+                    root /usr/share/nginx/html;
+                }
+
+                error_page 500 502  503 504 50x.html;
+                location = /50x.html {
+                    root /usr/share/nginx/html;
+                }
+            }
+    Enable the configuration by running
+        sudo ln -s /etc/nginx/sites-available/items-rest.conf /etc/nginx/sites-enabled/
+    Create the socket.sock file and clone the items rest app
+    Create a directory/folder for the app
+        sudo mkdir /var/www/html/items-rest
+        sudo chown jose:jose /var/www/html/items-rest
+    Got to the directory, clone the app and install dependencies. Run the following commands one by one in that order.
+        cd /var/www/html/items-rest
+        git clone https://github.com/vudinhquang/flask-api.git 
+            Procfile
+            app.py
+            db.py
+            models
+            requirements.txt
+            resources
+            run.py
+            runtime.txt
+            security.py
+            uwsgi.ini
+            in deploy copy to current folder
+        mkdir log
+        sudo apt-get install python3-pip python3-dev libpq-dev
+        pip3 install virtualenv
+        python3 -m virtualenv venv
+        source venv/bin/activate
+        pip3 install -r requirements.txt 
     
