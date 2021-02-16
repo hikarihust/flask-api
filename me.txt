@@ -527,3 +527,11 @@ Testing our API to make sure
         it sends store_id param so {{url}}/store/test have to request to created store
     GET: {{url}}/stores
     
+    ==========================================================================================================
+
+                                Security in REST APIs
+
+https://books.tecladocode.com/rest-apis-with-flask-and-python/domains-and-https/what-is-a-domain
+Getting our domain name
+    https://ap.www.namecheap.com/
+    
