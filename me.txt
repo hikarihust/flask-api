@@ -534,4 +534,12 @@ Testing our API to make sure
 https://books.tecladocode.com/rest-apis-with-flask-and-python/domains-and-https/what-is-a-domain
 Getting our domain name
     https://ap.www.namecheap.com/
+Setting up Cloudflare
+    https://www.cloudflare.com/
+    Add sites: vudinhquang-dev.com 
+        That domain is register while Getting our domain name
+    Log in to your Namecheap Account, change DNS server
+        Cloudflare's nameservers:
+            michael.ns.cloudflare.com
+            tiffany.ns.cloudflare.com
     
