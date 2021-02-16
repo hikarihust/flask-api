@@ -555,4 +555,17 @@ Verifying everything works
     POST: {{url}}/auth
     POST: {{url}}/store/test_store
     GET: {{url}}/stores
+Creating our SSL certificate in Cloudflare
+    https://chemicloud.com/blog/enable-and-setup-cloudflare/
+    https://dash.cloudflare.com/ go to vudinhquang-dev.com 
+    SSL/TLS(tab)
+        Full (strict)
+    Overview(tab)
+        Automatic HTTPS Rewrites -> On -> Save
+        Always use HTTPS -> On -> Save
+        Auto Minify -> JavaScript, html, css -> Save
+        Brotli -> On -> Save
+    Click the Origin Server tab.
+    Create Certificate to open the Origin Certificate Installation window.
+        Key format: PEM 
     
