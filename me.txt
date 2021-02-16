@@ -542,4 +542,10 @@ Setting up Cloudflare
         Cloudflare's nameservers:
             michael.ns.cloudflare.com
             tiffany.ns.cloudflare.com
+Setting our DNS records
+    https://dash.cloudflare.com/ go to vudinhquang-dev.com 
+    DNS(tab)
+    Add records:
+        Type: A, Name: vudinhquang-dev.com, Content: 3.22.249.40 
+        Type: CNAME, Name: www.vudinhquang-dev.com, Content: vudinhquang-dev.com
     
