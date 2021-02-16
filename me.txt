@@ -548,4 +548,11 @@ Setting our DNS records
     Add records:
         Type: A, Name: vudinhquang-dev.com, Content: 3.22.249.40 
         Type: CNAME, Name: www.vudinhquang-dev.com, Content: vudinhquang-dev.com
+    Check mail: To complete your sign up, please verify your email
+        click link
+Verifying everything works
+    url: http://vudinhquang-dev.com
+    POST: {{url}}/auth
+    POST: {{url}}/store/test_store
+    GET: {{url}}/stores
     
