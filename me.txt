@@ -579,4 +579,15 @@ Prepare for this section
     Copy code from section6
 A recap of the code + a few changes
 Creating a User Resource for testing
+Testing our new Resource with Postman
+    virtualenv venv --python=python3
+    .\venv\Scripts\activate
+    pip3 install Flask-RESTful 
+    pip3 install Flask-JWT
+    pip3 install Flask-SQLAlchemy
+    py .\app.py
+    POST: {{url}}/register
+    POST: {{url}}/auth
+    GET: {{url}}/user/1
+    DELETE: {{url}}/user/1
     
