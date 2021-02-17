@@ -600,4 +600,19 @@ Testing the login with Postman
     POST: {{url}}/register
     POST: {{url}}/login
     GET: {{url}}/items
+Adding JWT Claims
+    Claims in flask-jwt-extended are just pieces of data we can choose to attach to the jwt payload
+    @jwt.additional_claims_loader
+    from flask_jwt_extended import get_jwt
+    @jwt_required()
+    pip3 install flask-jwt-extended
+    py .\app.py
+    POST: {{url}}/register register jose user
+    POST: {{url}}/register register jose1 user
+    POST: {{url}}/login login jose user 
+    POST: {{url}}/item/test
+    DELETE: {{url}}/item/test delete ok
+    POST: {{url}}/item/test
+    POST: {{url}}/login login jose1 user
+    DELETE: {{url}}/item/test -> Admin privilege required
     

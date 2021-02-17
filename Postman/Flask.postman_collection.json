@@ -2126,7 +2126,7 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "JWT {{token}}"
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {
@@ -2211,6 +2211,46 @@
 							],
 							"path": [
 								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"tests[\"Access token was not empty\"] = jsonData.access_token !== undefined;\r",
+									"pm.environment.set(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jose1\",\r\n    \"password\": \"asdf\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
 							]
 						}
 					},
