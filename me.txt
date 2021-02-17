@@ -586,6 +586,7 @@ Testing our new Resource with Postman
     pip3 install Flask-JWT
     pip3 install Flask-SQLAlchemy
     py .\app.py
+    url: http://127.0.0.1:5000
     POST: {{url}}/register
     POST: {{url}}/auth
     GET: {{url}}/user/1
@@ -593,4 +594,10 @@ Testing our new Resource with Postman
 Logging in with Flask-JWT-Extended
     pip3 install flask-jwt-extended
     py .\app.py
+Testing the login with Postman
+    py .\app.py
+    url: http://127.0.0.1:5000
+    POST: {{url}}/register
+    POST: {{url}}/login
+    GET: {{url}}/items
     
