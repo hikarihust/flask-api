@@ -590,4 +590,7 @@ Testing our new Resource with Postman
     POST: {{url}}/auth
     GET: {{url}}/user/1
     DELETE: {{url}}/user/1
+Logging in with Flask-JWT-Extended
+    pip3 install flask-jwt-extended
+    py .\app.py
     
