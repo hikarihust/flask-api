@@ -577,3 +577,5 @@ Creating our SSL certificate in Cloudflare
 
 Prepare for this section
     Copy code from section6
+A recap of the code + a few changes
+    
