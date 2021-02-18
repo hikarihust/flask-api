@@ -626,4 +626,7 @@ Getting the JWT identity in and endpoint and @jwt_optional
     GET: GET: {{url}}/items 
         Authorization: Bearer {{token}}
         -> get full item infomation 
+What is a fresh token
+    A token you have recently received after entering your username and password
+    The site can be confident it is you, and not someone else
     
