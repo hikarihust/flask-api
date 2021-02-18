@@ -615,4 +615,15 @@ Adding JWT Claims
     POST: {{url}}/item/test
     POST: {{url}}/login login jose1 user
     DELETE: {{url}}/item/test -> Admin privilege required
+Getting the JWT identity in and endpoint and @jwt_optional
+    @jwt_required(optional=True)
+    get_jwt_identity() to get identity(uder id)
+    GET: {{url}}/items 
+        if have not send Headers
+        Authorization: Bearer {{token}}
+         -> items name
+            More data available if you log in
+    GET: GET: {{url}}/items 
+        Authorization: Bearer {{token}}
+        -> get full item infomation 
     
