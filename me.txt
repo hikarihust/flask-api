@@ -648,4 +648,6 @@ Requiring a fresh token in an endpoint
         -> Fresh token required
     POST: {{url}}/login have to login before post {{url}}/item/test 
     POST: {{url}}/item/test
+Customizing Flask-JWT-Extended callbacks and responses
+    @jwt.revoked_token_loader   ->  have been loged out
     
