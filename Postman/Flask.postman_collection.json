@@ -1808,7 +1808,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/items",
 							"host": [
@@ -2225,7 +2231,9 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"tests[\"Access token was not empty\"] = jsonData.access_token !== undefined;\r",
-									"pm.environment.set(\"token\", jsonData.access_token);"
+									"pm.environment.set(\"token\", jsonData.access_token);\r",
+									"tests[\"Fresh token was not empty\"] = jsonData.refresh_token !== undefined;\r",
+									"pm.environment.set(\"refresh_token\", jsonData.refresh_token);"
 								],
 								"type": "text/javascript"
 							}
@@ -2242,7 +2250,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"jose1\",\r\n    \"password\": \"asdf\"\r\n}"
+							"raw": "{\r\n    \"username\": \"jose\",\r\n    \"password\": \"asdf\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/login",
@@ -2251,6 +2259,46 @@
 							],
 							"path": [
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/refresh",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"tests[\"Access token was not empty\"] = jsonData.access_token !== undefined;\r",
+									"pm.environment.set(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": " Bearer {{refresh_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"refresh"
 							]
 						}
 					},

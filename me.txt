@@ -629,4 +629,14 @@ Getting the JWT identity in and endpoint and @jwt_optional
 What is a fresh token
     A token you have recently received after entering your username and password
     The site can be confident it is you, and not someone else
+Performing token refresh in our REST API
+    POST: {{url}}/login
+        return access_token and refresh_token value
+        var jsonData = pm.response.json();
+        tests["Access token was not empty"] = jsonData.access_token !== undefined;
+        pm.environment.set("token", jsonData.access_token);
+        tests["Fresh token was not empty"] = jsonData.refresh_token !== undefined;
+        pm.environment.set("refresh_token", jsonData.refresh_token);
+    POST: {{url}}/refresh using refresh_token value
+        Authorization  Bearer {{refresh_token}}
     
