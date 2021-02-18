@@ -639,4 +639,13 @@ Performing token refresh in our REST API
         pm.environment.set("refresh_token", jsonData.refresh_token);
     POST: {{url}}/refresh using refresh_token value
         Authorization  Bearer {{refresh_token}}
+Requiring a fresh token in an endpoint
+    POST: {{url}}/login
+    POST: {{url}}/refresh
+    POST: {{url}}/item/test
+        Have to send(Headers)
+        Authorization: Bearer {{token}}
+        -> Fresh token required
+    POST: {{url}}/login have to login before post {{url}}/item/test 
+    POST: {{url}}/item/test
     
