@@ -650,4 +650,19 @@ Requiring a fresh token in an endpoint
     POST: {{url}}/item/test
 Customizing Flask-JWT-Extended callbacks and responses
     @jwt.revoked_token_loader   ->  have been loged out
+Blacklisting with Flask-JWT-Extended and Logging users out in our REST API
+    https://flask-jwt-extended.readthedocs.io/en/latest/blocklist_and_token_revoking/
+    blacklist.py Create a short blacklist of user IDs that we want to deny access
+    rm .\data.db
+    py .\app.py
+    POST: {{url}}/register register jose user
+    POST: {{url}}/login login user jose
+    POST: {{url}}/item/test -> add test item
+    GET: {{url}}/item/test
+        Headers Bearer {{token}} 
+        -> can get item
+    POST: {{url}}/logout
+        Headers Bearer {{token}}
+    GET: {{url}}/item/test 
+        -> can not get item
     

@@ -1851,7 +1851,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "JWT {{token}}",
+								"value": "Bearer {{token}}",
 								"type": "text"
 							}
 						],
@@ -1863,6 +1863,46 @@
 							"path": [
 								"item",
 								"test"
+							]
+						},
+						"description": "This will return one specific item, uniquely identified by its name. No two items may have same name"
+					},
+					"response": []
+				},
+				{
+					"name": "/logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
 							]
 						},
 						"description": "This will return one specific item, uniquely identified by its name. No two items may have same name"

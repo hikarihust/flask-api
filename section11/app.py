@@ -1,9 +1,11 @@
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
+from flask_jwt_extended import get_jwt
 
 from db import db
-from resources.user import UserRegister, User, UserLogin, TokenRefresh
+from blacklist import BLACKLIST
+from resources.user import UserRegister, User, UserLogin, TokenRefresh, UserLogout
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 
@@ -11,6 +13,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
+app.config['JWT_BLACKLIST_ENABLED'] = True  # enable blacklist feature
+app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']  # allow blacklisting for access and refresh tokens
 app.secret_key = 'jose'
 api = Api(app)
 
@@ -31,6 +35,12 @@ def add_claims_to_jwt(identity):  # Remember identity is what we define when cre
         return {'is_admin': True}
     return {'is_admin': False}
 
+# This method will check if a token is blacklisted, and will be called automatically when blacklist is enabled
+@jwt.token_in_blocklist_loader
+def check_if_token_in_blacklist(jwt_header, jwt_payload):
+    jti = jwt_payload["jti"]
+    return jti in BLACKLIST
+    
 # The following callbacks are used for customizing jwt response/error messages.
 # The original ones may not be in a very pretty format (opinionated)
 @jwt.expired_token_loader
@@ -54,7 +64,6 @@ def missing_token_callback(error):
         'error': 'authorization_required'
     }), 401
 
-
 @jwt.needs_fresh_token_loader
 def token_not_fresh_callback(jwt_headers, jwt_payload):
     return jsonify({
@@ -77,6 +86,7 @@ api.add_resource(UserRegister, '/register')
 api.add_resource(User, '/user/<int:user_id>')
 api.add_resource(UserLogin, '/login')
 api.add_resource(TokenRefresh, '/refresh')
+api.add_resource(UserLogout, '/logout')
 
 if __name__ == '__main__':
     db.init_app(app)
